@@ -12,7 +12,7 @@ const routes: Routes = [
     loadChildren: () => import('./dash/dash.module').then(mod => mod.DashModule),
   },
   {
-    path: 'admin-layout',
+    path: 'admin-layout', 
     canActivate: [CanActivateGuard],
     data: { admin: true },
     loadChildren: () => import('./admin-layout/admin-layout.module').then(mod => mod.AdminLayoutModule),
