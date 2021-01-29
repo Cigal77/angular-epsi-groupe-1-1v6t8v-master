@@ -1,0 +1,28 @@
+<header>
+    <div class="container">
+      <h1>Bienvenue !</h1>
+      <div class="row">
+        <ng-container *ngIf="!isSignedIn">
+          <button routerLink="/auth/signup" mat-raised-button>Je m'inscris</button>
+          <button routerLink="/auth/signin" mat-raised-button>Je me connecte</button>
+        </ng-container>
+        <ng-container *ngIf="isSignedIn">
+          <button routerLink="/dash/home" mat-raised-button>Afficher les matchs</button>
+          <button routerLink="/dash/profile" mat-raised-button>Éditer mon profil</button>
+        </ng-container>
+      </div>
+    </div>
+  </header>
+  <section>
+    <hr>
+    <mat-grid-list cols="3" rowHeight="20vh">
+      <mat-grid-tile *ngFor="let avantage of avantages">
+        <div class="avantage" fxLayout="column" fxLayoutAlign="space-around center">
+          <i class="{{avantage.icon}} fa-2x"></i>
+          <h3>{{ avantage.title }}</h3>
+          <p>{{ avantage.content }}</p>
+        </div>
+      </mat-grid-tile>
+    </mat-grid-list>
+    <hr>
+  </section>
