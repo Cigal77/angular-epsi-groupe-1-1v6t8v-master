@@ -1,4 +1,7 @@
+import { CoreEnvironment } from '@angular/compiler/src/compiler_facade_interface';
 import { Component, OnInit } from '@angular/core';
+import {MatchService} from '../../../core/services/match.service';
+
 
 @Component({
   selector: 'app-admin-layout',
@@ -7,9 +10,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AdminLayoutComponent implements OnInit {
 
-  constructor() { }
+  matchs$: Observable<CoreEnvironment>;
+
+  constructor(
+    private matchService: MatchService
+  ) {
+    this.matchs$ = matchService.get();
+  }
 
   ngOnInit() {
+  }
+
+  supprTag(tab, tag): void {
+    tab.slice(tag.index);
   }
 
 }
